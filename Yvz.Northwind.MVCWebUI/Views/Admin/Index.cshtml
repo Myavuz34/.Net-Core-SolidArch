@@ -1,0 +1,30 @@
+﻿@model Yvz.Northwind.MVCWebUI.Models.ProdcutListViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/_AdminLayout.cshtml";
+}
+
+<h2>Product List</h2>
+<td><a class="btn btn-outline-primary" asp-controller="Admin" asp-action="Add">Add A New Product</a></td>
+<div>
+
+    <table class="table">
+        <tr>
+            <td>Prodcut Name</td>
+            <td>Unit Price</td>
+            <td>Unit in Stock</td>
+            <td></td>
+        </tr>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@product.ProductName</td>
+                <td>@product.UnitPrice</td>
+                <td>@product.UnitsInStock</td>
+                <td><a class="btn btn-outline-info" asp-controller="Admin" asp-action="Update" asp-route-productId="@product.ProductId">Güncelle</a></td>
+                <td><a class="btn btn-outline-danger" asp-controller="Admin" asp-action="Delete" asp-route-productId="@product.ProductId">Sil</a></td>
+            </tr>
+        }
+    </table>
+</div>

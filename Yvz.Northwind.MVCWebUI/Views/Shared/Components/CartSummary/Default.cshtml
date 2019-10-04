@@ -1,0 +1,14 @@
+﻿@model Yvz.Northwind.MVCWebUI.Models.CartSummaryViewModel
+
+<div class="dropdown-menu my-2 my-lg-0" aria-labelledby="navbarDropdown">
+    @foreach (var item in Model.Cart.CartLines)
+    {
+        <a class="dropdown-item" href="#">@item.Product.ProductName <span class="badge">@item.Quantity</span></a>
+    }
+
+
+    <div class="dropdown-divider"></div>
+    <a><span class="glyphicon glyphicon-shopping-cart"></span>@Model.Cart.Total</a>
+    <div class="dropdown-divider"></div>
+    <a asp-controller="Cart" asp-action="List">Detaylar</a>
+</div>
